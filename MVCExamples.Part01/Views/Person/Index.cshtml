@@ -1,0 +1,36 @@
+﻿@using Entities
+@{
+    ViewData[SadrTools.Utility.StaticValues.ViewData.Title] = "Person Page";
+    var personObj = ViewData[SadrTools.Utility.StaticValues.ViewData.Person] as Person;
+
+    //personObj = null; جهت تست ?.
+}
+
+<div>
+    <h1 class="display-4">@ViewData[SadrTools.Utility.StaticValues.ViewData.Title]</h1>
+
+    <ul>
+        <li>
+            @ViewData[SadrTools.Utility.StaticValues.ViewData.ID]
+        </li>
+        <li>
+            @ViewData[SadrTools.Utility.StaticValues.ViewData.FirstName]
+        </li>
+        <li>
+            @ViewData[SadrTools.Utility.StaticValues.ViewData.LastName]
+        </li>
+    </ul>
+
+    <ol>
+        <li>
+           @personObj?.ID
+        </li>
+         <li>
+           @personObj?.FirstName
+        </li>
+        <li>
+            @personObj?.LastName
+        </li>
+    </ol>
+
+</div>
