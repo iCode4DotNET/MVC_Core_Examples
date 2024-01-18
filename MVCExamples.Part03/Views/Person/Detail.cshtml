@@ -1,0 +1,26 @@
+﻿@using Entities
+@model Person
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Detail</title>
+</head>
+<body>
+    <input type="text" disabled id="TxtID"         value="@Model.ID" />
+    <input type="text" disabled id="TxtFirstName"  value="@Model.FirstName" />
+    <input type="text" disabled id="TxtLastName"   value="@Model.LastName" />
+
+    <hr />
+
+    <input type="text" disabled id="TxtID"       name="@Model.ID"  />
+    <input type="text" disabled id="TxtFirstName" name="@Model.FirstName"  />
+    <input type="text" disabled id="TxtLastName" name="@Model.FirstName" />
+
+</body>
+</html>

@@ -11,8 +11,18 @@
 
             public static string Person { get; } = "Person";
 
+            public static string Welcome { get; } = "Welcome";
+            public static string Security { get; } = "Security";
+            public static string Message { get; } = "Message";
+            public static string CssClass { get; } = "CssClass";
+
         }
 
+        public static class TempData
+        {
+            public static string Contact { get; } = "Contact";
+            public static string Security { get; } = "Security";
+        }
 
     }
 }

@@ -1,0 +1,50 @@
+﻿@using Entities
+@using Tools.Extensions
+@model Person
+
+<div class="text-center">
+
+    @Html.Label("lblWelcome", "Welcome")
+    
+    <br />
+    <br />
+
+
+    @Html.ActionLink(linkText:"Go To Pre Page !",actionName: "Index2", controllerName: "Home")
+    
+    <br />
+    <br />
+
+
+    @Html.DisplayNameFor(x=>x.FirstName) :
+    @Html.TextBoxFor(x => x.FirstName)
+
+    <br />
+    <br />
+
+    @Html.DisplayNameFor(x => x.LastName) :
+    @Html.TextBoxFor(x => x.LastName)
+
+    <br />
+    <br />
+
+
+    @Html.DisplayNameFor(x => x.IsAdmin) :
+    @Html.CheckBoxFor(x => x.IsAdmin)
+
+    <br />
+    <br />
+
+    @Html.DisplayNameFor(x => x.Note) :
+    @Html.TextAreaFor(x => x.Note)
+
+    <br />
+    <br />
+
+    <img src="~/images/Soroush_Sadr.jpg" width="100" height="123" alt="" title="" />
+
+    <br />
+
+    @Html.Image("img1", "/images/Soroush_Sadr.jpg", "سروش صدر", 200, 200)
+
+</div>

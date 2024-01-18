@@ -1,0 +1,47 @@
+﻿@using Entities
+@model Person
+
+<div class="text-center">
+
+    <label>Welcome</label>
+   
+    <br />
+    <br />
+
+    <a href="/home/index3/">Go To Next Page !</a>
+    
+    <br />
+    <br />
+
+    <input type="text" 
+           placeholder="لطفا نام را وارد کنید" 
+           value="@Model.FirstName" 
+           name="txtFirstName" 
+           id="txtFirstName" />
+    <br />
+    <br />
+
+
+    <input type="text" 
+           placeholder="لطفا نام خانوادگی را وارد کنید" 
+           value="@Model.LastName" 
+           name="txtLastName" 
+           id="txtLastName" />
+    <br />
+    <br />
+
+
+    <input type="checkbox" 
+           checked="@Model.IsAdmin" 
+           name="chkIsAdmin" 
+           id="chkIsAdmin" />
+    <br />
+    <br />
+
+
+    <textarea cols="80" rows="10" 
+              name="txtNote" 
+              id="txtNote">
+              @Model.Note
+    </textarea>
+</div>

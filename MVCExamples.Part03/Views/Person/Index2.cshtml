@@ -1,0 +1,25 @@
+﻿@using Entities
+@model IEnumerable<Person>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index2</title>
+</head>
+<body>
+    @{
+        foreach (var item in Model)
+        {
+            <input type="text" disabled id="@string.Join(null,"TxtID",item.ID)" value="@item.ID" />
+            <input type="text" disabled id="@string.Join(null,"TxtName",item.ID)" value="@item.FirstName" />
+            <input type="text" disabled id="@string.Join(null,"TxtFamily",item.ID)" value="@item.LastName" />
+            <hr />
+        }
+    }
+</body>
+</html>
