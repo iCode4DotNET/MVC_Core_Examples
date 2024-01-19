@@ -24,5 +24,30 @@
             public static string Security { get; } = "Security";
         }
 
+        public static class Exception
+        {
+            /// <summary>
+            /// عبارت مورد نظر قابل تبدیل به عدد صحیح نمیباشد
+            /// </summary>
+            public static string ToInt { get; } = "عبارت مورد نظر قابل تبدیل به عدد صحیح نمیباشد";
+
+            /// <summary>
+            /// عبارت مورد نظر قابل تبدیل به عدد اعشاری نمیباشد
+            /// </summary>
+            public static string ToFloat { get; } = "عبارت مورد نظر قابل تبدیل به عدد اعشاری نمیباشد";
+
+            /// <summary>
+            /// آبجکت مورد نظر معتبر نمیباشد
+            /// </summary>
+            public static string InvalidObject { get; } = "آبجکت مورد نظر معتبر نمیباشد";
+
+            /// <summary>
+            /// لیست مورد نظر فقط خواندنی میباشد
+            /// </summary>
+            public static string ReadOnlyList { get; } = "لیست مورد نظر فقط خواندنی میباشد";
+
+        }
+
+
     }
 }

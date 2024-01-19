@@ -1,3 +1,8 @@
-﻿<h1>
-    @DateTime.Now.ToPersianDate()
+﻿@{
+    var tomorrow = @DateTime.Now.AddDays(1);
+    var result = tomorrow.ToPersianDate();
+}
+
+<h1>
+    @result
 </h1>
