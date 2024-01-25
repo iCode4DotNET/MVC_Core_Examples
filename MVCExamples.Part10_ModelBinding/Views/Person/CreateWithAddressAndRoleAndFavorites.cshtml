@@ -1,0 +1,123 @@
+﻿@using Entities.ModelBinding.Advance
+@model Entities.ModelBinding.Advance.Person
+
+@{
+    ViewData["Title"] = "تعریف اشخاص و آدرس و نقش و علایق آنها";
+}
+
+<h1>تعریف اشخاص و آدرس و نقش و علایق آنها</h1>
+
+<h4>Person</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CreateWithAddressAndRoleAndFavorites" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="PersonID" class="control-label"></label>
+                <input asp-for="PersonID" class="form-control" />
+                <span asp-validation-for="PersonID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FirstName" class="control-label"></label>
+                <input asp-for="FirstName" class="form-control" />
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LastName" class="control-label"></label>
+                <input asp-for="LastName" class="form-control" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+           
+            <div class="form-group">
+                <label asp-for="Role"></label>
+                <select asp-for="Role" class="form-control"
+                        asp-items="@ViewBag.RoleEnum">
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="BirthDate" class="control-label"></label>
+                <input asp-for="BirthDate" class="form-control" />
+                <span asp-validation-for="BirthDate" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsApproved" /> @Html.DisplayNameFor(model => model.IsApproved)
+                </label>
+            </div>
+
+            <hr />
+
+            <div class="form-group">
+                <label asp-for="AddressObject.Country" class="control-label"></label>
+                <input asp-for="AddressObject.Country" class="form-control" />
+                <span asp-validation-for="AddressObject.Country" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="AddressObject.City" class="control-label"></label>
+                <input asp-for="AddressObject.City" class="form-control" />
+                <span asp-validation-for="AddressObject.City" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="AddressObject.Line1" class="control-label"></label>
+                <input asp-for="AddressObject.Line1" class="form-control" />
+                <span asp-validation-for="AddressObject.Line1" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <label asp-for="AddressObject.Line2" class="control-label"></label>
+                <input asp-for="AddressObject.Line2" class="form-control" />
+            </div>
+
+
+            <div class="form-group">
+                <label asp-for="AddressObject.PostalCode" class="control-label"></label>
+                <input asp-for="AddressObject.PostalCode" class="form-control" />
+                <span asp-validation-for="AddressObject.PostalCode" class="text-danger"></span>
+            </div>
+
+
+            <div class="row">
+                <div class="col-6">
+                    <fieldset id="favorites" class="border p-2 m-2">
+                        <legend>علاقه مندی ها</legend>
+                        <button id="AddFavorite"
+                                type="button"
+                                class="btn btn-primary">
+                            افزودن
+                        </button>
+                        <div id="FavoritesPlaceHolder"></div>
+                    </fieldset>
+                </div>
+            </div>
+
+            <hr />
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+
+@section Scripts
+{
+    <script type="text/javascript">
+        var getFavoritesPath = "@Url.Action(action: "GetFavoritesSection",controller: "Person")";
+    </script>
+
+    <script src="~/js/Person.js"></script>
+
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
