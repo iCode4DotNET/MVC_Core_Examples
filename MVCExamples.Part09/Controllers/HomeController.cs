@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using MVCExamples.Part09.Models;
 using System.Diagnostics;
 
@@ -15,7 +15,8 @@ namespace MVCExamples.Part09.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            throw new Exception("ایجاد خطا جهت تست");
+            //return View();  
         }
 
         public IActionResult Privacy()

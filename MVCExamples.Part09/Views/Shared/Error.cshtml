@@ -6,6 +6,20 @@
 <h1 class="text-danger">Error.</h1>
 <h2 class="text-danger">An error occurred while processing your request.</h2>
 
+<br />
+<hr />
+
+<label helper-for="@Model.RequestId">@Model.RequestId</label>
+
+<input helper-for="@Model.RequestId" value="@Model.RequestId" />
+
+<input helper-for="@Model.ErrorNumber" value="1000" />
+
+<input helper-for="@Model.ErrorFile" />
+
+<br />
+<hr />
+
 @if (Model.ShowRequestId)
 {
     <p>
