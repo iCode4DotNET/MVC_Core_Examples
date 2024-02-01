@@ -361,3 +361,5 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/MVCExamples.Part10_ModelBinding/Views/Person/CreatePhone.cshtml
+/MVCExamples.Part10_ModelBinding/Views/Shared/_PhonePartial.cshtml
