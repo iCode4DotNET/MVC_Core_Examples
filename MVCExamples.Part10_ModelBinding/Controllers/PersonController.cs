@@ -93,6 +93,16 @@ namespace MVCExamples.Part10_ModelBinding.Controllers
         {
             return PartialView("_FavoritePartial");
         }
+
+
+        public IActionResult GetPhonesSection(int id)
+        {
+            var data = Enum.GetNames(typeof(Entities.ModelBinding.Advance.EnPhoneType));
+            Microsoft.AspNetCore.Mvc.Rendering.SelectList phoneType = new(items: data);
+            ViewBag.PhoneType = phoneType;
+            ViewBag.Index = id;
+            return PartialView("_PhonesPartial");
+        }
     }
 }
 

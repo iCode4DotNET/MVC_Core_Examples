@@ -12,6 +12,9 @@
 <div class="row">
     <div class="col-md-4">
         <form asp-action="CreateWithAddressAndRoleAndFavorites" method="post">
+
+            <input type="hidden" id="PhonesCount" value="@Model.Phones.Count"/>
+
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="PersonID" class="control-label"></label>
@@ -80,7 +83,6 @@
                 <span asp-validation-for="AddressObject.PostalCode" class="text-danger"></span>
             </div>
 
-
             <div class="row">
                 <div class="col-6">
                     <fieldset id="favorites" class="border p-2 m-2">
@@ -94,6 +96,24 @@
                     </fieldset>
                 </div>
             </div>
+
+
+            <div class="row">
+                <div class="col-6">
+                    <fieldset id="Phones" class="border p-2 m-2">
+                        <legend>شماره موبایل</legend>
+                        <button id="AddPhones"
+                                type="button"
+                                class="btn btn-primary">
+                            افزودن
+                        </button>
+                        <div id="PhonesPlaceHolder"></div>
+                    </fieldset>
+                </div>
+            </div>
+
+            
+           
 
             <hr />
 
@@ -112,9 +132,12 @@
 @section Scripts
 {
     <script type="text/javascript">
-        var getFavoritesPath = "@Url.Action(action: "GetFavoritesSection",controller: "Person")";
-    </script>
 
+        var getFavoritesPath = "@Url.Action(action: "GetFavoritesSection",controller: "Person")";
+        var getPhonesPath = "@Url.Action(action: "GetPhonesSection", controller: "Person")";
+
+    </script>
+    
     <script src="~/js/Person.js"></script>
 
     @{

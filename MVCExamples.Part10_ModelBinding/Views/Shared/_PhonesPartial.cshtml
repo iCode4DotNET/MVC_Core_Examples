@@ -1,0 +1,26 @@
+﻿@using Entities.ModelBinding.Advance
+@model Person
+@{
+    int index = ViewBag.Index;
+}
+
+<fieldset class="border p-2 m-2">
+    <div class="form-group">
+
+        <label for="Phones[@index].PhoneNumber">شماره موبایل :</label>
+
+         <input id="Phones" 
+               name="Phones[@index].PhoneNumber"
+               class="form-control" 
+               value="@Model" /> 
+    </div>
+    <div class="form-group">
+        <label asp-for="Phones[index].PhoneType"></label>
+        <select name="Phones[@index].PhoneType" class="form-control"
+                asp-items="@ViewBag.PhoneType">
+        </select>
+    </div>
+    <div class="indexer">
+        <input type="hidden" name="[@index]indexer" value="@index" />
+    </div>
+</fieldset>
