@@ -1,5 +1,6 @@
 ﻿using Entities.ModelBinding.Simple;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Permissions;
 
@@ -19,8 +20,9 @@ namespace MVCExamples.Part10_ModelBinding.Controllers
         }
 
         [HttpPost]
-        public JsonResult Create(Person person)
+        public JsonResult Create(Person person, int phoneIndex)
         {
+            // Add logic for handling phones using the phoneIndex parameter
             return Json(person);
         }
 
@@ -36,7 +38,6 @@ namespace MVCExamples.Part10_ModelBinding.Controllers
             return Json(person);
         }
 
-
         [HttpGet]
         public IActionResult CreateWithAddressAndRole()
         {
@@ -48,30 +49,18 @@ namespace MVCExamples.Part10_ModelBinding.Controllers
             return View();
         }
 
-
-
-
-        //[HttpPost]
-        //public JsonResult CreateWithAddressAndRole(Person person)
-        //{
-        //    return Json(person);
-        //}
-
-
         [HttpPost]
         public IActionResult CreateWithAddressAndRole(Person person)
         {
             if (ModelState.IsValid == false)
             {
-                // plz enter .........
-                // ViewBag مجدد مقدار دهی کنید
+                // Add appropriate error messages or handling
+                ViewBag.RoleEnum = new SelectList(Enum.GetNames(typeof(EnRole)));
                 return View(person);
             }
 
             return RedirectToAction(nameof(Index));
         }
-
-
 
         [HttpGet]
         public IActionResult CreateWithAddressAndRoleAndFavorites()
@@ -88,12 +77,10 @@ namespace MVCExamples.Part10_ModelBinding.Controllers
             return Json(person);
         }
 
-
         public IActionResult GetFavoritesSection()
         {
             return PartialView("_FavoritePartial");
         }
-
 
         public IActionResult GetPhonesSection(int id)
         {
@@ -105,4 +92,3 @@ namespace MVCExamples.Part10_ModelBinding.Controllers
         }
     }
 }
-

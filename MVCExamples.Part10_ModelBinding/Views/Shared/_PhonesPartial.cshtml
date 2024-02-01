@@ -1,26 +1,25 @@
-﻿@using Entities.ModelBinding.Advance
-@model Person
-@{
-    int index = ViewBag.Index;
-}
+﻿$(document).ready(function() {
+    $("#AddFavorite").click(function () {
+        $.get(getFavoritesPath, function (data) {
+            $("#FavoritesPlaceHolder").append(data);
+            $("#FavoritesPlaceHolder :last-child").focus();
+        });
+    });
 
-<fieldset class="border p-2 m-2">
-    <div class="form-group">
+    $("#AddPhones").click(function () {
+        var newIndex;
 
-        <label for="Phones[@index].PhoneNumber">شماره موبایل :</label>
+        if ($(".indexer input").last().val() !== undefined) {
+            newIndex = parseInt($(".indexer input").last().val(), 10) + 1;
+        } else {
+            newIndex = 0;
+        }
 
-         <input id="Phones" 
-               name="Phones[@index].PhoneNumber"
-               class="form-control" 
-               value="@Model" /> 
-    </div>
-    <div class="form-group">
-        <label asp-for="Phones[index].PhoneType"></label>
-        <select name="Phones[@index].PhoneType" class="form-control"
-                asp-items="@ViewBag.PhoneType">
-        </select>
-    </div>
-    <div class="indexer">
-        <input type="hidden" name="[@index]indexer" value="@index" />
-    </div>
-</fieldset>
+        var getPhonesPathNew = (newIndex !== 0) ? `${getPhonesPath}/${newIndex}` : getPhonesPath;
+
+        $.get(getPhonesPathNew, function (data) {
+            $("#PhonesPlaceHolder").append(data);
+            $("#PhonesPlaceHolder :last-child").focus();
+        });
+    });
+});
