@@ -1,23 +1,24 @@
-﻿@using Entities
-@model Person
-
+﻿@model List<SampleData.Shopping.GetProducts>
 
 <div>
-    <h1 class="display-4">@ViewData[SadrTools.Utility.StaticValues.ViewData.Title]</h1>
-
-    <ul>
-        <li>
-            
-           @Model.ID
-        </li>
-        <li>
-            @Model.FirstName
-        </li>
-        <li>
-            @Model.LastName
-        </li>
-    </ul>
-
-    
-
+    <h1 class="display-4">Products page 3</h1>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var product in Model)
+            {
+                <tr>
+                    <td class="bg-info">@product.Title</td>
+                    <td class="bg-danger">@product.Price</td>
+                </tr>
+            }
+        </tbody>
+    </table>
 </div>
+
+

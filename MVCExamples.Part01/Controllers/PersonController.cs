@@ -86,20 +86,18 @@ namespace MVCExamples.Part01.Controllers
             ViewData[SadrTools.Utility.StaticValues.ViewData.ID] = person.ID;
             ViewData[SadrTools.Utility.StaticValues.ViewData.FirstName] = person.FirstName;
             ViewData[SadrTools.Utility.StaticValues.ViewData.LastName] = person.LastName;
-
-
             ViewData[SadrTools.Utility.StaticValues.ViewData.Person] = person;
-
-
             return View();
         }
 
         public IActionResult Index2()
         {
-            Response.ContentType = "text/html; charset=utf-8";
-            var person = new Person(1, "سروش", "صدر");
-            return View(person);
+            var products = SampleData.Shopping.GetProducts();
+            return View(products);
         }
+
+        
+
     }
 }
 

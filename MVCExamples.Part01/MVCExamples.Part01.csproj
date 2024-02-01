@@ -13,7 +13,9 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Common\SadrTools\SadrTools.csproj" />
+    <ProjectReference Include="..\Common\SampleData\SampleData.csproj" />
     <ProjectReference Include="..\Domain\Entities\Entities.csproj" />
+    <ProjectReference Include="..\Domain\ViewModels\ViewModels.csproj" />
   </ItemGroup>
 
 </Project>
